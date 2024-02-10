@@ -24,8 +24,8 @@
 
             {{-- Display link to CMS if user has 'admin' role --}}
             @if(auth()->user()->user_role === 'admin')
-                {{-- <a href="{{ route('cms') }}">CMS</a> --}}
-                <a href="cms">Will link to CMS</a>
+                {{-- <a href="{{ url('/cms') }}">CMS</a> --}}
+        <a href="{{ route('cms') }}">CMS</a>
             @endif
         @endguest
 

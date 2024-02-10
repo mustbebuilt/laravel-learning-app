@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\FilmController;
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\CMSController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -36,7 +36,18 @@ Route::middleware('auth')->group(function () {
 Route::get('/', [FilmController::class, 'welcome']);
 Route::get('/films', [FilmController::class, 'getAll']);
 Route::get('/film/{id}', [FilmController::class, 'getOne']);
+// name added to allow use of route directive in blade
 Route::get('/search', [FilmController::class, 'search'])->name('search');
-
-
+// name added to allow use of route directive in blade
+Route::get('/cms', [CMSController::class, 'index'])->name('cms');
+// Route to display the edit form
+Route::get('/cms/{film}/edit', [CMSController::class, 'edit'])->name('cms.edit');
+// Route to update the film
+Route::put('/cms/{film}', [CMSController::class, 'update'])->name('cms.update');
+// Route to display the form for creating a new film
+Route::get('/cms/create', [CMSController::class, 'create'])->name('cms.create');
+// Route to store a new film
+Route::post('/cms', [CMSController::class, 'store'])->name('cms.store');
+// Route to delete a film
+Route::delete('/cms/{film}', [CMSController::class, 'destroy'])->name('cms.destroy');
 require __DIR__ . '/auth.php';
