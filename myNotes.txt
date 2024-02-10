@@ -1,0 +1,20 @@
+martin@mbb.com
+letMeIn88
+
+Use sail artisan to build the mirgration and model with:
+
+sail artisan make:model Film -m
+
+Build the mirgration and model for certificates 
+
+sail artisan make:model Certificate -m
+
+Refine models then migrate.
+
+Migrate certificates first with:
+
+sail artisan migrate --path=/database/migrations/2024_02_10_113339_create_certificates_table.php
+
+sail artisan migrate
+
+
