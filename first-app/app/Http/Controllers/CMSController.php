@@ -26,23 +26,31 @@ class CMSController extends Controller
         return view('cms.edit', ['film' => $film, 'certificates' => $certificates]);
     }
 
-    public function update(Request $request, Film $film)
+    public function update(Request $request, $id)
     {
+        // dd($id);
+        // Find the film by its ID or throw an exception if not found
+        $film = Film::findOrFail($id);
+
         // Update the film data based on the form input
         $film->update($request->all());
 
         // Redirect back to the CMS index page
-        return redirect()->route('cms')->with('success', 'Film updated successfully.');
+        // return redirect()->route('cms')->with('success', 'Film updated successfully.');
+        return redirect()->route('cms')->with('success', 'Film "' . $film->filmTitle . '" updated successfully.');
     }
 
     public function destroy(Film $film)
     {
+        // Find the film by its ID or throw an exception if not found
+        $film = $film->findOrFail($film->id);
+
         // Delete the specified film
         $film->delete();
 
         // Redirect back to the CMS index page
         // return redirect()->route('cms.index')->with('success', 'Film deleted successfully.');
-        return redirect()->route('cms')->with('success', 'Film deleted successfully.');
+        return redirect()->route('cms')->with('success', 'Film "' . $film->filmTitle . '" deleted successfully.');
     }
 
     public function create()
@@ -68,10 +76,10 @@ class CMSController extends Controller
         ]);
 
         // Create a new film record with the validated data
-        Film::create($validatedData);
+        $film = Film::create($validatedData);
 
         // Redirect back to the CMS index page
         // return redirect()->route('cms.index')->with('success', 'Film created successfully.');
-        return redirect()->route('cms')->with('success', 'Film created successfully.');
+        return redirect()->route('cms')->with('success', 'Film "' . $film->filmTitle . ' "created successfully.');
     }
 }

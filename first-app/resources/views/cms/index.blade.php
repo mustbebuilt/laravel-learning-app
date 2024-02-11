@@ -5,7 +5,11 @@
 @section('content')
     <h1>CMS</h1>
     <p>Content Management System</p>
-
+    @if(session('success'))
+        <div class="alert alert-success">
+            {{ session('success') }}
+        </div>
+    @endif
     <table>
         <thead>
             <tr>
