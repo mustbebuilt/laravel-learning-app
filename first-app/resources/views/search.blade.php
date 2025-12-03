@@ -8,7 +8,7 @@
         @foreach($films as $film)
             <li>
                 <a href="{{ url('/film', $film->id) }}">
-                    {{ $film->filmTitle }} - {{ $film->certificate->filmCertificate }}
+                    {{ $film->film_title }} - {{ $film->certificate->film_certificate }}
                 </a>
             </li>
         @endforeach

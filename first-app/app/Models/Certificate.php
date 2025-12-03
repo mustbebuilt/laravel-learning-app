@@ -10,12 +10,12 @@ class Certificate extends Model
     use HasFactory;
 
     protected $fillable = [
-        'filmCertificate',
-        'filmCertDescription',
+        'film_certificate',
+        'film_cert_description',
     ];
 
     public function films()
     {
-        return $this->hasMany(Film::class, 'filmCertificate_id');
+        return $this->hasMany(Film::class, 'certificate_id');
     }
 }

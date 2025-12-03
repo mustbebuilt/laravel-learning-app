@@ -11,7 +11,7 @@ class FilmController extends Controller
     public function welcome()
     {
         // Uses Eloquent
-        $films = Film::orderBy('releaseDate', 'desc')->limit(6)->get();
+        $films = Film::orderBy('film_release_date', 'desc')->limit(6)->get();
         //dd($films);
         return view('welcome', ['films' => $films]);
     }
@@ -39,7 +39,7 @@ class FilmController extends Controller
         $query = $request->input('query');
 
         // Perform the search using the query
-        $films = Film::where('filmTitle', 'like', "%$query%")->get();
+        $films = Film::where('film_title', 'like', "%$query%")->get();
 
         // Return the search results to the view
         return view('search', ['films' => $films, 'query' => $query]);

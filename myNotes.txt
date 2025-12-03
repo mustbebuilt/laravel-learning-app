@@ -1,6 +1,10 @@
 martin@mbb.com
 letMeIn88
 
+run with 
+
+php artisan serve
+
 Use sail artisan to build the mirgration and model with:
 
 sail artisan make:model Film -m

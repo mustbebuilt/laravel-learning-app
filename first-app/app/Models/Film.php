@@ -10,17 +10,17 @@ class Film extends Model
     use HasFactory;
 
     protected $fillable = [
-        'filmTitle',
-        'filmCertificate_id',
-        'filmDescription',
-        'filmImage',
-        'filmPrice',
-        'starRating',
-        'releaseDate',
+        'film_title',
+        'film_certificate_id',
+        'film_description',
+        'film_image',
+        'film_price',
+        'filmstar_rating',
+        'film_release_date',
     ];
 
     public function certificate()
     {
-        return $this->belongsTo(Certificate::class, 'filmCertificate_id');
+        return $this->belongsTo(Certificate::class, 'film_certificate_id');
     }
 }

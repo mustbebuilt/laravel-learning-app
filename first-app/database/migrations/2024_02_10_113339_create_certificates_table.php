@@ -10,8 +10,8 @@ class CreateCertificatesTable extends Migration
     {
         Schema::create('certificates', function (Blueprint $table) {
             $table->id();
-            $table->string('filmCertificate');
-            $table->text('filmCertDescription');
+            $table->string('film_vertificate');
+            $table->text('film_cert_description');
             $table->timestamps();
         });
     }
